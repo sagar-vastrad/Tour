@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Login Form</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .container {
+      max-width: 400px;
+      background-color: #dddddd;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    .error-message {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Login</h1>
+    <form id="loginForm" action="index.html" method="post" onsubmit="return validateForm()">
+        <label for="inputEmail">Email address</label>
+        <input type="email" class="form-control" id="inputEmail" placeholder="Enter your email" required>
+        <label for="inputPassword">Password</label>
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
+      <button type="submit" class="btn btn-warning btn-block mt-4">Login</button>
+      <div class="mt-2 text-center">
+        <p>Don't have an account yet? <a href="register.html">Register here</a></p>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      var email = document.getElementById('inputEmail').value;
+      var password = document.getElementById('inputPassword').value;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address');
+        return false; 
+      }
+
+      if (!email || !password) {
+        alert('Please fill in all fields');
+        return false; 
+      }
+
+      alert('Login successful');
+      window.location.href = 'index.html'; 
+      return false; 
+    }
+  </script>
+
+</body>
+
+</html>
